@@ -11,23 +11,6 @@ from pynput.keyboard import Key, Controller
 import serial
 import threading
 
-
-
-
-
-
-
-
-
-
-
-
-           
-
-
-
-
-
 consoleregkey=OpenKey(HKEY_CURRENT_USER, r"console", 0, KEY_WRITE)
 SetValueEx(consoleregkey ,"WindowPosition",1,REG_DWORD, 0xfe0018)
 SetValueEx(consoleregkey ,"WindowsIZE",1,REG_DWORD, 0X190050)
@@ -67,10 +50,7 @@ class TouchButton(Widget):
         self.root.pack()
         self.place()
 
-
     def movewidget(self,i=0,event=None):
-
-        
         try:           
             xx=int(self.root.place_info().get('x'))
             yy=int(self.root.place_info().get('y'))
@@ -88,7 +68,6 @@ class TouchButton(Widget):
         self.root.place_forget()
     def place(self):
         self.root.place(x=self.x, y=self.y )
-
 
     def state(self, i):
         if i == DISABLED :
@@ -128,9 +107,6 @@ class GUI():
             bytesize = serial.EIGHTBITS,
             timeout = 2)
         self.cmnd = self.readcommand()
-
-
-
 #_____________________________________________________________________________________________________________________________________________
     def images(self):
         self.imgexit=PhotoImage (
